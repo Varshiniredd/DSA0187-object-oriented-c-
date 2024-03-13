@@ -6,10 +6,8 @@ int main() {
 
     float floatValue;
 
-    // Implicit conversion: Assign the integer variable to the float variable
     floatValue = integerValue;
 
-    // Display the values
     std::cout << "Integer value: " << integerValue << std::endl;
     std::cout << "Float value (implicitly converted from integer): " << floatValue << std::endl;
 
