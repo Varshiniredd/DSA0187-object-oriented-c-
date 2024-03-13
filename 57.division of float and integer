@@ -1,22 +1,18 @@
 #include <iostream>
 
 int main() {
-    // Declare variables to store integer and float
+    
     int integerNum;
     float floatNum;
 
-    // Prompt the user to enter an integer
     std::cout << "Enter an integer: ";
     std::cin >> integerNum;
 
-    // Prompt the user to enter a float
     std::cout << "Enter a float: ";
     std::cin >> floatNum;
 
-    // Perform division of float by integer
     float result = floatNum / integerNum;
 
-    // Display the result
     std::cout << "Result of division (float / integer): " << result << std::endl;
 
     return 0;
