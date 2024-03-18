@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+
+class Car {
+private:
+    std::string model;
+
+public:
+    
+    Car() : model("Unknown") {}
+
+    Car(const std::string& m) : model(m) {}
+
+    // Method to get the model
+    std::string getModel() const {
+        return model;
+    }
+};
+
+int main() {
+    std::string user_model;
+
+    std::cout << "Enter the model of the car: ";
+    std::getline(std::cin, user_model);
+
+    Car myCar(user_model);
+
+    std::cout << "Model of the car: " << myCar.getModel() << std::endl;
+
+    return 0;
+}
