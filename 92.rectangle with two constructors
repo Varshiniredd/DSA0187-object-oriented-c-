@@ -1,0 +1,35 @@
+#include <iostream>
+
+class Rectangle {
+private:
+    double length;
+    double width;
+
+public:
+   
+    Rectangle(double l = 1.0, double w = 1.0) : length(l), width(w) {}
+
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    double getLength() const {
+        return length;
+    }
+
+    double getWidth() const {
+        return width;
+    }
+};
+
+int main() {
+   
+    Rectangle defaultRectangle; 
+    Rectangle customRectangle(5.0, 3.0); 
+
+    std::cout << "Default Rectangle: Length = " << defaultRectangle.getLength()
+              << ", Width = " << defaultRectangle.getWidth() << std::endl;
+
+    std::cout << "Custom Rectangle: Length = " << customRectangle.getLength()
+              << ", Width = " << customRectangle.getWidth() << std::endl;
+
+    return 0;
+}
