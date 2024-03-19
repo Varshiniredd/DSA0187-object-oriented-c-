@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+
+class Person {
+protected:
+    std::string name;
+    int age;
+
+public:
+    Person(const std::string& n, int a) : name(n), age(a) {}
+};
+
+class Student : public Person {
+private:
+    std::string grade;
+
+public:
+  
+    Student(const std::string& n, int a, const std::string& g) : Person(n, a), grade(g) {}
+};
+
+int main() {
+    
+    Student student("John Doe", 20, "A");
+
+    return 0;
+}
