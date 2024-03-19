@@ -1,0 +1,35 @@
+#include <iostream>
+
+class Bird {
+public:
+   
+    virtual void fly() const = 0;
+};
+
+class Eagle : public Bird {
+public:
+    
+    void fly() const override {
+        std::cout << "Eagle is soaring high in the sky!" << std::endl;
+    }
+};
+
+class Sparrow : public Bird {
+public:
+  
+    void fly() const override {
+        std::cout << "Sparrow is fluttering its wings and flying!" << std::endl;
+    }
+};
+
+int main() {
+   
+    Eagle eagle;
+    Sparrow sparrow;
+
+    std::cout << "Flying Behavior:" << std::endl;
+    eagle.fly();
+    sparrow.fly();
+
+    return 0;
+}
