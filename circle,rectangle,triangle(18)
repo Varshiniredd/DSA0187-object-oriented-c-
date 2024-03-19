@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cmath>
+
+class Shape {
+public:
+   
+    virtual void draw() const = 0;
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+   
+    Circle(double r) : radius(r) {}
+
+ 
+    void draw() const override {
+        std::cout << "Drawing a Circle with radius " << radius << std::endl;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+
+public:
+  
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    void draw() const override {
+        std::cout << "Drawing a Rectangle with length " << length << " and width " << width << std::endl;
+    }
+};
+
+class Triangle : public Shape {
+private:
+    double side1, side2, side3;
+
+public:
+    
+    Triangle(double s1, double s2, double s3) : side1(s1), side2(s2), side3(s3) {}
+
+    void draw() const override {
+        std::cout << "Drawing a Triangle with sides " << side1 << ", " << side2 << ", " << side3 << std::endl;
+    }
+};
+
+int main() {
+  
+    Shape* shapes[3];
+
+    shapes[0] = new Circle(5.0);
+    shapes[1] = new Rectangle(4.0, 3.0);
+    shapes[2] = new Triangle(3.0, 4.0, 5.0);
+
+ 
+    for (int i = 0; i < 3; ++i) {
+        shapes[i]->draw();
+    }
+
+    for (int i = 0; i < 3; ++i) {
+        delete shapes[i];
+    }
+
+    return 0;
+}
