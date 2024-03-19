@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+
+class BankAccount {
+protected:
+    std::string accountNumber;
+    double balance;
+
+public:
+    
+    BankAccount(const std::string& accNum, double bal) : accountNumber(accNum), balance(bal) {}
+
+    void deposit(double amount) {
+        balance += amount;
+        std::cout << "Deposit of $" << amount << " successful. Current balance: $" << balance << std::endl;
+    }
+
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            std::cout << "Withdrawal of $" << amount << " successful. Current balance: $" << balance << std::endl;
+        } else {
+            std::cout << "Insufficient funds for withdrawal." << std::endl;
+        }
+    }
+};
+
+class SavingsAccount : public BankAccount {
+public:
+ 
+    SavingsAccount(const std::string& accNum, double bal) : BankAccount(accNum, bal) {}
+};
+
+class CurrentAccount : public BankAccount {
+public:
+   
+    CurrentAccount(const std::string& accNum, double bal) : BankAccount(accNum, bal) {}
+};
+
+int main() {
+ 
+    SavingsAccount savings("SA123", 1000.0);
+    std::cout << "Savings Account Details:" << std::endl;
+    savings.deposit(500.0);
+    savings.withdraw(200.0);
+    savings.withdraw(2000.0); 
+
+    std::cout << std::endl;
+
+    CurrentAccount current("CA456", 2000.0);
+    std::cout << "Current Account Details:" << std::endl;
+    current.deposit(1000.0);
+    current.withdraw(1500.0);
+
+    return 0;
+}
