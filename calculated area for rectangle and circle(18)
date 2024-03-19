@@ -1,0 +1,59 @@
+#include <iostream>
+
+class Shape {
+public:
+   
+    virtual double area() const = 0;
+
+    virtual double perimeter() const = 0;
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+
+public:
+    
+    Rectangle(double l, double w) : length(l), width(w) {}
+
+    double area() const override {
+        return length * width;
+    }
+
+    
+    double perimeter() const override {
+        return 2 * (length + width);
+    }
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+
+public:
+   
+    Circle(double r) : radius(r) {}
+
+    double area() const override {
+        return 3.14159 * radius * radius; 
+    }
+
+
+    double perimeter() const override {
+        return 2 * 3.14159 * radius; 
+    }
+};
+
+int main() {
+    
+    Rectangle rectangle(5.0, 3.0);
+    std::cout << "Area of Rectangle: " << rectangle.area() << std::endl;
+    std::cout << "Perimeter of Rectangle: " << rectangle.perimeter() << std::endl;
+
+    Circle circle(4.0);
+    std::cout << "Area of Circle: " << circle.area() << std::endl;
+    std::cout << "Circumference of Circle: " << circle.perimeter() << std::endl;
+
+    return 0;
+}
