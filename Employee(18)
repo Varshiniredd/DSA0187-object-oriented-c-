@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+protected:
+    std::string name;
+    double salary;
+
+public:
+    Employee(const std::string& n, double s) : name(n), salary(s) {}
+};
+
+class Manager : public Employee {
+private:
+    std::string department;
+
+public:
+
+    Manager(const std::string& n, double s, const std::string& d) : Employee(n, s), department(d) {}
+};
+
+class Worker : public Employee {
+public:
+    // Constructor for Worker
+    Worker(const std::string& n, double s) : Employee(n, s) {}
+};
+
+int main() {
+    // Create an object of Manager class
+    Manager manager("John Doe", 5000.0, "Marketing");
+
+    // Create an object of Worker class
+    Worker worker("Jane Smith", 3000.0);
+
+    return 0;
+}
