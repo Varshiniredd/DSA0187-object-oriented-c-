@@ -1,0 +1,46 @@
+#include <iostream>
+
+class Vehicle {
+protected:
+    int speed;
+    int fuel;
+
+public:
+   
+    Vehicle(int s, int f) : speed(s), fuel(f) {}
+};
+
+class Car : public Vehicle {
+public:
+   
+    Car(int s, int f) : Vehicle(s, f) {}
+
+    void displayInfo() const {
+        std::cout << "Car Speed: " << speed << " km/h" << std::endl;
+        std::cout << "Car Fuel: " << fuel << " liters" << std::endl;
+    }
+};
+
+class Bike : public Vehicle {
+public:
+    
+    Bike(int s, int f) : Vehicle(s, f) {}
+
+    void displayInfo() const {
+        std::cout << "Bike Speed: " << speed << " km/h" << std::endl;
+        std::cout << "Bike Fuel: " << fuel << " liters" << std::endl;
+    }
+};
+
+int main() {
+    
+    Car car(100, 20);
+    std::cout << "Car Info:" << std::endl;
+    car.displayInfo();
+
+    Bike bike(80, 10);
+    std::cout << "Bike Info:" << std::endl;
+    bike.displayInfo();
+
+    return 0;
+}
